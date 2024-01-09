@@ -1,16 +1,21 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-// import Pet from "./Pet";
-import SearchParams from "./SearchParams";
+import Home from "./pages/Home";
+import PetDetail from "./pages/PetDetail";
 
 const App = () => {
   return (
-    <div>
-      <h1>Adopt Me!</h1>
-      {/* <Pet name="Pancake" animal="Dog" breed="Lab Mix" /> */}
-      <SearchParams />
-    </div>
+    <BrowserRouter>
+      <div>
+        <h1>Adopt Me!</h1>
+        <Routes>
+          <Route path="/details/:id" element={<PetDetail />} />
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   )
 };
 
